@@ -250,6 +250,20 @@ header{position:sticky;top:0;z-index:50;background:var(--vidrio);
 .tarjeta .acciones .boton.fantasma{padding:10px 15px;font-size:14px;border-radius:999px;
   text-decoration:none;font-weight:600}
 
+/* ── colores ── */
+/* Baldosas blancas a propósito: las fotos de color vienen de estudio, sobre
+   blanco, y una grilla de muestras se lee como catálogo de pintura, no como
+   un hueco en la página (que es lo que pasaba con UNA baldosa blanca suelta
+   entre fotos de paisaje). */
+.colores{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:14px}
+.color{display:flex;flex-direction:column;gap:8px;text-decoration:none;color:var(--tinta)}
+.color-foto{display:block;background:#fff;border-radius:12px;overflow:hidden;
+  aspect-ratio:3/2;border:1px solid var(--raya);transition:transform .15s ease,box-shadow .15s ease}
+.color-foto img{width:100%;height:100%;object-fit:contain}
+.color:hover .color-foto{transform:translateY(-2px);box-shadow:0 10px 26px rgba(0,0,0,.28)}
+.color-nombre{font-size:14px;font-weight:600;text-align:center}
+@media (max-width:520px){.colores{grid-template-columns:repeat(2,1fr);gap:10px}}
+
 /* ── tablas de ficha ── */
 .tabla{width:100%;border-collapse:collapse;font-size:14.5px}
 .tabla td{border-bottom:1px solid var(--raya);padding:10px 4px;vertical-align:top}
@@ -349,9 +363,9 @@ footer{padding-block:34px;border-top:3px solid var(--divisor);background:var(--p
     <a class="logo" href="index.html"><span class="marca-punto"></span>Asesor Citroën Medellín</a>
     <button class="nav-toggle" aria-label="Ver los modelos" aria-expanded="false">Modelos<span class="chev" aria-hidden="true"></span></button>
     <div class="nav-links">
-      <a href="citroen-c3-medellin.html">C3</a>
+      <a href="citroen-c3-medellin.html">C3 Feel</a>
       <a href="citroen-basalt-medellin.html">Basalt</a>
-      <a href="citroen-c3-aircross-medellin.html">C3 Aircross</a>
+      <a href="citroen-c3-aircross-medellin.html">Aircross</a>
       <a href="citroen-c3-hibrida-medellin.html">C3 Max Híbrida</a>
       <a href="citroen-aircross-hibrida-medellin.html">Aircross Max Híbrida</a>
       <a href="citroen-berlingo-medellin.html">Berlingo</a>
@@ -381,12 +395,14 @@ footer{padding-block:34px;border-top:3px solid var(--divisor);background:var(--p
   </div>
 </section>
 
+
+
 <section class="sec" id="galeria">
   <div class="env">
     <h2 class="sec-title">Míralo por dentro y por fuera</h2>
     <p class="sec-sub">Fotos oficiales de Citroën. Las de la sala las voy subiendo a medida que entran los carros.</p>
     <div class="modelos">
-      <div class="marco claro"><img src="fotos/berlingo-lateral.jpg" alt="Citroën Berlingo blanco de lado" loading="lazy" decoding="async"></div>
+      <div class="marco claro blanco completa"><img src="fotos/berlingo-nueva.jpg" alt="Nueva Citroën Berlingo blanca con la puerta lateral abierta" loading="lazy" decoding="async"></div>
       <div class="marco claro"><img src="fotos/berlingo-trasera.jpg" alt="Parte trasera del Citroën Berlingo" loading="lazy" decoding="async"></div>
       <div class="marco claro blanco completa"><img src="fotos/berlingo-carga.jpg" alt="Zona de carga del Citroën Berlingo" loading="lazy" decoding="async"></div>
     </div>
@@ -465,7 +481,7 @@ footer{padding-block:34px;border-top:3px solid var(--divisor);background:var(--p
     <div class="modelos" style="margin-top:22px">
       <a class="tarjeta" href="citroen-c3-medellin.html" style="text-decoration:none">
         <div class="cuerpo">
-          <h3>C3</h3>
+          <h3>C3 Feel</h3>
           <p style="font-size:14px;color:var(--suave);margin:0">La puerta de entrada a Citroën: una SUV de 115 caballos al precio más bajo del portafolio.</p>
         </div>
       </a>
@@ -477,7 +493,7 @@ footer{padding-block:34px;border-top:3px solid var(--divisor);background:var(--p
       </a>
       <a class="tarjeta" href="citroen-c3-aircross-medellin.html" style="text-decoration:none">
         <div class="cuerpo">
-          <h3>C3 Aircross</h3>
+          <h3>Aircross</h3>
           <p style="font-size:14px;color:var(--suave);margin:0">La SUV familiar de Citroën: 493 litros de baúl y espacio de sobra para la familia.</p>
         </div>
       </a>

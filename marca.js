@@ -51,7 +51,7 @@ window.MARCA = {
   "modelos": [
     {
       "linea": "C3",
-      "nombre": "C3",
+      "nombre": "C3 Feel",
       "pagina": "/citroen-c3-medellin.html",
       "paginasExtra": [],
       "traccion": "",
@@ -67,7 +67,7 @@ window.MARCA = {
     },
     {
       "linea": "AIRCROSS",
-      "nombre": "C3 Aircross",
+      "nombre": "Aircross",
       "pagina": "/citroen-c3-aircross-medellin.html",
       "paginasExtra": [],
       "traccion": "",

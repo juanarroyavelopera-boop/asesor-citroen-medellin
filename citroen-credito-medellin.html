@@ -250,6 +250,20 @@ header{position:sticky;top:0;z-index:50;background:var(--vidrio);
 .tarjeta .acciones .boton.fantasma{padding:10px 15px;font-size:14px;border-radius:999px;
   text-decoration:none;font-weight:600}
 
+/* ── colores ── */
+/* Baldosas blancas a propósito: las fotos de color vienen de estudio, sobre
+   blanco, y una grilla de muestras se lee como catálogo de pintura, no como
+   un hueco en la página (que es lo que pasaba con UNA baldosa blanca suelta
+   entre fotos de paisaje). */
+.colores{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:14px}
+.color{display:flex;flex-direction:column;gap:8px;text-decoration:none;color:var(--tinta)}
+.color-foto{display:block;background:#fff;border-radius:12px;overflow:hidden;
+  aspect-ratio:3/2;border:1px solid var(--raya);transition:transform .15s ease,box-shadow .15s ease}
+.color-foto img{width:100%;height:100%;object-fit:contain}
+.color:hover .color-foto{transform:translateY(-2px);box-shadow:0 10px 26px rgba(0,0,0,.28)}
+.color-nombre{font-size:14px;font-weight:600;text-align:center}
+@media (max-width:520px){.colores{grid-template-columns:repeat(2,1fr);gap:10px}}
+
 /* ── tablas de ficha ── */
 .tabla{width:100%;border-collapse:collapse;font-size:14.5px}
 .tabla td{border-bottom:1px solid var(--raya);padding:10px 4px;vertical-align:top}
@@ -329,9 +343,9 @@ footer{padding-block:34px;border-top:3px solid var(--divisor);background:var(--p
     <a class="logo" href="index.html"><span class="marca-punto"></span>Asesor Citroën Medellín</a>
     <button class="nav-toggle" aria-label="Ver los modelos" aria-expanded="false">Modelos<span class="chev" aria-hidden="true"></span></button>
     <div class="nav-links">
-      <a href="citroen-c3-medellin.html">C3</a>
+      <a href="citroen-c3-medellin.html">C3 Feel</a>
       <a href="citroen-basalt-medellin.html">Basalt</a>
-      <a href="citroen-c3-aircross-medellin.html">C3 Aircross</a>
+      <a href="citroen-c3-aircross-medellin.html">Aircross</a>
       <a href="citroen-c3-hibrida-medellin.html">C3 Max Híbrida</a>
       <a href="citroen-aircross-hibrida-medellin.html">Aircross Max Híbrida</a>
       <a href="citroen-berlingo-medellin.html">Berlingo</a>
@@ -354,11 +368,11 @@ footer{padding-block:34px;border-top:3px solid var(--divisor);background:var(--p
     <div style="border:1px solid var(--raya);border-radius:16px;padding:clamp(20px,4vw,32px)">
       <label style="display:block;font-weight:650;margin-bottom:7px" for="simModel">El carro</label>
       <select id="simModel" style="width:100%;padding:13px 14px;border-radius:10px;border:1px solid var(--raya);font:inherit;font-size:15.5px;background:#fff">
-        <option value="0">C3 — $63.990.000</option>
-        <option value="1">Basalt — $68.490.000</option>
-        <option value="2">C3 Aircross — $75.490.000</option>
-        <option value="3">C3 Max Híbrida — $83.990.000</option>
-        <option value="4">Aircross Max Híbrida — $93.990.000</option>
+        <option value="0">C3 Feel — $62.990.000</option>
+        <option value="1">Basalt — $66.990.000</option>
+        <option value="2">Aircross — $73.990.000</option>
+        <option value="3">C3 Max Híbrida — $82.490.000</option>
+        <option value="4">Aircross Max Híbrida — $92.490.000</option>
         <option value="5">Berlingo — $103.990.000</option>
       </select>
 
@@ -390,7 +404,7 @@ footer{padding-block:34px;border-top:3px solid var(--divisor);background:var(--p
 /* El simulador. Los precios de la lista se rellenan al construir, y el CRM los
    actualiza en vivo si cambia alguno. */
 (function () {
-  var MODELOS = [["C3",63990000],["Basalt",68490000],["C3 Aircross",75490000],["C3 Max Híbrida",83990000],["Aircross Max Híbrida",93990000],["Berlingo",103990000]];
+  var MODELOS = [["C3 Feel",62990000],["Basalt",66990000],["Aircross",73990000],["C3 Max Híbrida",82490000],["Aircross Max Híbrida",92490000],["Berlingo",103990000]];
   var TASA = 0.018;
   if (!MODELOS.length) return;
   var fmt = function (n) { return '$' + Math.round(n).toLocaleString('es-CO'); };

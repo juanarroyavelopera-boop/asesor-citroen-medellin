@@ -61,7 +61,7 @@
     var t = e.target;
     if (!t || !t.closest) return;
 
-    var wa = t.closest('.wpp-cta');
+    var wa = t.closest('.wpp-cta, [data-wa]'); // mismo criterio que track.js
     if (wa) { estandar('Lead', datos(wa.getAttribute('data-ctx'), 'whatsapp')); return; }
 
     var call = t.closest('.call-cta');

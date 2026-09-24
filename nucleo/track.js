@@ -220,7 +220,10 @@
     var alt = t.closest('#waqr-alt'); // "Prefiero WhatsApp Web" del modal QR (desktop)
     if (alt) { send('whatsapp_open_attempt', 'waqr_web_fallback', {}); return; }
 
-    var wa = t.closest('.wpp-cta');
+    // .wpp-cta son los botones verdes; [data-wa] es cualquier otro enlace a
+    // WhatsApp que también cuenta como conversión (las muestras de color de la
+    // ficha). Sin esto un clic en "quiero el rojo" abría el chat y no se medía.
+    var wa = t.closest('.wpp-cta, [data-wa]');
     if (wa) {
       var ctx = wa.getAttribute('data-ctx') || 'general';
       send('cta_whatsapp_click', ctx, {});
