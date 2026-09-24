@@ -79,12 +79,24 @@
 
   // Los nombres de las tarjetas coinciden con el nombre del portafolio
   // (única diferencia: "Across Híbrida" en la página vs "Across" en el catálogo)
+  /* Primero el nombre EXACTO; si no aparece, el prefijo MÁS LARGO.
+     Aceptar prefijos hace falta ("Across Híbrida" en la página contra "Across"
+     en el catálogo), pero quedarse con el primero que calce era un error: en
+     Citroën "C3" es el comienzo de "C3 Aircross" y de "C3 Max Híbrida", y
+     como el catálogo viene ordenado por precio el C3 llegaba primero y les
+     regalaba su precio a los otros dos. Las tarjetas mostraban $63.990.000 en
+     carros de $75 y $84 millones. Con el más largo gana el más específico. */
   function buscarPorNombre(modelos, nombre) {
     var n = (nombre || '').trim().toLowerCase();
-    return modelos.filter(function (x) {
-      var xn = x.nombre.toLowerCase();
-      return xn === n || n.indexOf(xn) === 0 || xn.indexOf(n) === 0;
-    })[0] || null;
+    var mejor = null, largo = -1;
+    for (var i = 0; i < modelos.length; i++) {
+      var xn = (modelos[i].nombre || '').trim().toLowerCase();
+      if (xn === n) return modelos[i];
+      if ((n.indexOf(xn) === 0 || xn.indexOf(n) === 0) && xn.length > largo) {
+        mejor = modelos[i]; largo = xn.length;
+      }
+    }
+    return mejor;
   }
 
   /* Nombre exacto, sin prefijos.
